@@ -1,0 +1,70 @@
+<?php
+    class Vehicle{
+        public $brand;
+        public $model;
+        public $yearOfManufacture;
+
+        public function startEngine(){
+            echo "двигатель завелся🚗";
+        }
+
+        public function stop(){
+            echo "а все остановился!";
+        }
+    }
+
+    class Car  extends Vehicle implements Drivable{
+        public $nebitayanekrashenaya;
+        public $bodyType;
+        public function drive(){
+            echo "edem edem на машине";
+        }
+    }
+
+    class Motorcycle extends Vehicle implements Drivable{
+        public $sidecarPresence;
+        public $color;
+        public function drive(){
+            echo "мы едем на мотосайкл";
+        }
+    }
+
+    class Boat extends Vehicle implements Swimmable{
+        public $material;
+        public function swim(){
+            echo "мы плывем на лодке";
+        }
+    }
+
+    class Airplane extends Vehicle implements Flyable{
+        public function takeoff(){
+            echo "Пристегнитесь, мы взлетаем!✈🛫<br>";
+        }
+        public function land(){
+            echo "МЫ ПАДАЕМ, шучу садимся🛬<br>";
+        }
+        public function fly(){
+            echo "мы летим";
+        }
+    }
+
+    interface Drivable {
+        public function drive();
+    }
+    interface Flyable {
+        public function fly();
+    }
+    interface Swimmable {
+        public function swim();
+    }
+
+    trait CargoCapacity{
+        public function cargo(){
+            echo "Я перевожу груз";
+        }
+    }
+    
+    $samolet = new Airplane;
+    $samolet->takeoff();
+    $samolet->land();
+?>
